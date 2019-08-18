@@ -13,28 +13,41 @@
         android:layout_marginTop="78dp"
         android:id="@+id/editable_item"
          />
+
     <LinearLayout
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:weightSum="100"
+        android:layout_height="69dp"
         android:layout_below="@+id/editable_item"
-        >
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:weightSum="100">
 
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/btnDelete"
             android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/btnDelete"
             android:text="Xoá" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:layout_alignBottom="@id/btnDelete"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/btnDelete"
+            android:layout_toRightOf="@id/btnDelete"
             android:text="Lưu" />
+
+        <Button
+            android:id="@+id/btnView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/btnSave"
+            android:text="Xem" />
 
     </LinearLayout>
 
@@ -45,4 +58,5 @@
         android:layout_below="@id/editable_item"
         android:layout_marginTop="91dp"
         app:srcCompat="@drawable/cbir" />
+
 </RelativeLayout>

@@ -15,7 +15,7 @@ public class EditDataActivity extends AppCompatActivity {
 
     private EditText editable_item;
 
-    DatabaseHelper mDatabaseHelper = new DatabaseHelper(this);
+    DatabaseHelper mDatabaseHelper;
 
     private String selectedName;
     private int selectedID;
@@ -26,6 +26,8 @@ public class EditDataActivity extends AppCompatActivity {
         setContentView(R.layout.edit_data_layout);
         Button btnSave = findViewById(R.id.btnSave);
         Button btnDelete = findViewById(R.id.btnDelete);
+        Button btnViewData = findViewById(R.id.btnView);
+        mDatabaseHelper = new DatabaseHelper(this);
         editable_item = findViewById(R.id.editable_item);
 
         //get the intent extra from the ListDataActivity
@@ -47,7 +49,7 @@ public class EditDataActivity extends AppCompatActivity {
                 if(!item.equals("")){
                     mDatabaseHelper.updateName(item,selectedID,selectedName);
                 }else{
-                    toastMessage("Máº¯c má»› gÃ¬ xoÃ¡ zi mÃ¡");
+                    toastMessage("Mắc mớ gì xoá zi má");
                 }
             }
         });
@@ -57,7 +59,14 @@ public class EditDataActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mDatabaseHelper.deleteName(selectedID,selectedName);
                 editable_item.setText("");
-                toastMessage("Máº¥t tiu lun");
+                toastMessage("Mất tiu lun");
+            }
+        });
+        btnViewData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditDataActivity.this, ListDataActivity.class);
+                startActivity(intent);
             }
         });
 

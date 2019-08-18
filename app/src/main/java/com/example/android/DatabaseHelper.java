@@ -28,9 +28,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
+
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(String.format("DROP IF TABLE EXISTS %s", TABLE_NAME));
         onCreate(db);
+    }
+    public void QueryData(String sql) {
+        SQLiteDatabase database = getReadableDatabase();
+        database.execSQL(sql);
+
+
     }
 
     boolean addData(String item) {
